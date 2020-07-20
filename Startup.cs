@@ -26,6 +26,15 @@ namespace MovieWebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            var movieList = new List<Movie>();
+            var movie1 = new Movie();
+            movie1.Title = "Jurassic Park";
+            movie1.Director = "Steven Spielberg";
+            movie1.Year = 1993;
+            movieList.Add(movie1);
+
+            services.AddSingleton(movieList);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
