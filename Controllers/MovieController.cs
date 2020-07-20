@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ namespace MovieWebApi.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [DebuggerDisplay("{" + nameof(GetDebuggerDisplay) + "(),nq}")]
     public class MovieController : ControllerBase
     {
       List<Movie> _movieList;
@@ -42,5 +44,12 @@ namespace MovieWebApi.Controllers
         public string DeleteMovie()
         {
             return "Deleting movie";
+        }   
+    
+
+        private string GetDebuggerDisplay()
+        {
+            return ToString();
+        }
     }
 }
